@@ -23,14 +23,10 @@ public class HerokuAppTest {
         WebElement inputField = driver.findElement(By.xpath("//*[@type='number']"));
         inputField.sendKeys("20");
         String actualText = inputField.getAttribute("value");
-
         Assert.assertEquals(actualText, "20");
-
         inputField.sendKeys(Keys.ARROW_UP);
         actualText = inputField.getAttribute("value");
-
         Assert.assertEquals(actualText, "21");
-
         driver.quit();
     }
 }
