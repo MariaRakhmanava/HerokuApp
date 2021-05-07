@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class CheckboxesPageTests {
 
     @Test
-    public void checkbox1Test() {
+    public void checkboxesPageTest() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
