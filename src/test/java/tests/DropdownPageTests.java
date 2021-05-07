@@ -34,6 +34,6 @@ public class DropdownPageTests {
         Assert.assertTrue(dropdownOptions.get(1).isSelected());
         dropdown.selectByVisibleText("Option 2");
         Assert.assertTrue(dropdownOptions.get(2).isSelected());
-        // driver.quit();
+        driver.quit();
     }
 }
