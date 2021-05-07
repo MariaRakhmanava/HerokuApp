@@ -19,6 +19,7 @@ public class CheckboxesPageTests {
         driver.manage().window().maximize();
         driver.get("http://the-internet.herokuapp.com/checkboxes");
         List<WebElement> checkboxes = driver.findElements(By.cssSelector("[type=checkbox]"));
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         Assert.assertFalse(checkboxes.get(0).isSelected());
         checkboxes.get(0).click();
         Assert.assertTrue(checkboxes.get(1).isSelected());
