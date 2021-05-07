@@ -25,6 +25,6 @@ public class CheckboxesPageTests {
         Assert.assertTrue(checkboxes.get(1).isSelected());
         checkboxes.get(1).click();
         Assert.assertFalse(checkboxes.get(1).isSelected());
-        // driver.quit();
+        driver.quit();
     }
 }
