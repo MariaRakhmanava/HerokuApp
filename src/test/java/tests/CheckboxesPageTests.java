@@ -17,7 +17,6 @@ public class CheckboxesPageTests {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get("http://the-internet.herokuapp.com/checkboxes");
         List<WebElement> checkboxes = driver.findElements(By.cssSelector("[type=checkbox]"));
         Assert.assertFalse(checkboxes.get(0).isSelected());
