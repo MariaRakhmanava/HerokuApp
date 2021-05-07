@@ -22,9 +22,10 @@ public class CheckboxesPageTests {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         Assert.assertFalse(checkboxes.get(0).isSelected());
         checkboxes.get(0).click();
+        Assert.assertTrue(checkboxes.get(0).isSelected());
         Assert.assertTrue(checkboxes.get(1).isSelected());
         checkboxes.get(1).click();
         Assert.assertFalse(checkboxes.get(1).isSelected());
-        driver.quit();
+        // driver.quit();
     }
 }
