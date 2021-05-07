@@ -21,7 +21,7 @@ public class DropdownPageTests {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get("http://the-internet.herokuapp.com/dropdown");
-        Select dropdown = new Select(driver.findElement(By.xpath("//select[@id='dropdown']")));
+        Select dropdown = new Select(driver.findElement(By.xpath("//*[@id='dropdown']")));
         List<WebElement> dropdownOptions = dropdown.getOptions();
         List<String> optionsToExist = new ArrayList<>(3);
         optionsToExist.add("Please select an option");
