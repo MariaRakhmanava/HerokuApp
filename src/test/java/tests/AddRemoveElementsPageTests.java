@@ -23,8 +23,8 @@ public class AddRemoveElementsPageTests {
         addElementsButton.click();
         addElementsButton.click();
         driver.findElement(By.xpath("//*[@onclick='deleteElement()']")).click();
-        List<WebElement> elementsAdded = driver.findElements(By.xpath("//*[@onclick='deleteElement()']"));
-        Assert.assertEquals(elementsAdded.size(), 1);
+        List<WebElement> deleteButtonsList = driver.findElements(By.xpath("//*[@onclick='deleteElement()']"));
+        Assert.assertEquals(deleteButtonsList.size(), 1);
         driver.quit();
     }
 }
