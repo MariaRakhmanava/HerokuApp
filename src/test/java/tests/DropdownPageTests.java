@@ -30,9 +30,9 @@ public class DropdownPageTests {
         for (int i = 0; i < dropdownOptions.size(); i++) {
             Assert.assertEquals(dropdownOptions.get(i).getText(), optionsToExist.get(i));
         }
-        dropdown.selectByVisibleText("Option 1");
+        dropdown.selectByVisibleText(optionsToExist.get(1));
         Assert.assertTrue(dropdownOptions.get(1).isSelected());
-        dropdown.selectByVisibleText("Option 2");
+        dropdown.selectByVisibleText(optionsToExist.get(2));
         Assert.assertTrue(dropdownOptions.get(2).isSelected());
         driver.quit();
     }
