@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class AddRemoveElementsPageTests {
@@ -19,14 +20,18 @@ public class AddRemoveElementsPageTests {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get("http://the-internet.herokuapp.com/add_remove_elements/");
         WebElement addElementsButton = driver.findElement(By.xpath("//*[@onclick='addElement()']"));
-        int numberOfDeleteButtons = 0;
+        // int numberOfDeleteButtons = 0;
         addElementsButton.click();
-        numberOfDeleteButtons++;
+        // numberOfDeleteButtons++;
         addElementsButton.click();
-        numberOfDeleteButtons++;
+        // numberOfDeleteButtons++;
         driver.findElement(By.xpath("//*[@onclick='deleteElement()']")).click();
-        numberOfDeleteButtons--;
-        Assert.assertEquals(numberOfDeleteButtons, 1);
+        List<WebElement> elementsAdded = driver.findElements(By.xpath("//*[@onclick='deleteElement()']"));
+        // numberOfDeleteButtons--;
+        Assert.assertEquals(elementsAdded.size(), 1);
+        /* хотя конечно вышестоящая строка по-хорошему должна бы выглядеть так:
+        Assert.assertEquals(elementsAdded.size(), numberOfDeleteButtons);
+         */
         driver.quit();
     }
 
@@ -39,6 +44,9 @@ public class AddRemoveElementsPageTests {
         addElementsButton.click();
         numberOfDeleteButtons++;
         ...
+        List<WebElement> elementsAdded = driver.findElements(By.xpath("//*[@onclick='deleteElement()']"));
+        numberOfDeleteButtons--;
+        Assert.assertEquals(elementsAdded.size(), 1);
 
         Я думала создать класс WebElementSpecified, который наследовал бы класс RemoteWebElement, и в нем бы
         переопределила метод click() таким образом, чтобы считалось количество добавленных элементов, то есть,
